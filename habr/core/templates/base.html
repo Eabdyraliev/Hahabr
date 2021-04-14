@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}HAHABR{% endblock %}</title>
+    <link rel="stylesheet" href = "{% 'static mystyle.css' %'}">
+    {% block extra-script %}
+
+    {% endblock %}
+</head>
+<body>
+    <a href="{% url 'authors' %}">Авторы</a> |
+    <a href="{% url 'articles' %}">Статьи</a> |
+    <a href="#">Топ 10</a> |
+    <a href="{% url 'article-add' %}">Добавить</a> |
+    <a href="{% url 'about' %}">О сайте</a>
+    <span> Привет, {{ request.user.username!! }}</span>
+
+    <hr>
+
+    {% block content %}
+    {% endblock %}
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>
