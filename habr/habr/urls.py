@@ -18,6 +18,7 @@ from django.urls import path
 from core.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', homepage, name = 'base'),
-    path('article/', article, name='article')
+    path("article/<int:id>/", article, name = 'article'),
+    path('articles/', articles, name = 'articles'),
+    path('authors/', authors, name = 'authors')
 ]

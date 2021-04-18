@@ -4,12 +4,9 @@ from .models import Article, Author
 
 
 # Create your views here.
-def homepage(request):
-    # return HttpResponse('<h2>Hello world!<h2>')
-    return render(request, 'base.html')
 
-def article(request):
-    article = Article.objects.get(id=1)
+def article(request, id):
+    article = Article.objects.get(id=id)
     return render(
         request,
         'article.html',
@@ -51,3 +48,10 @@ def delete_article(request, id):
     article = Article.object.get(pk=id)
     article.delete()
 
+def articles(request):
+    articles = Article.objects.all()
+    return render(request, "articles.html", {"articles":articles})
+
+def authors(request):
+    authors = Author.objects.all()
+    return render(request, "authors.html", {"authors":authors})
