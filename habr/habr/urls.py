@@ -15,9 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from core.views import homepage, first_article
+from core.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('test/', homepage),
-    path('article/', first_article, name='first-article-page'),
+    path('', homepage, name = 'base'),
+    path('article/', article, name='article')
 ]

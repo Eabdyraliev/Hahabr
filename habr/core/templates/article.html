@@ -1,17 +1,13 @@
-{% extends 'base.html' %}
-
-
-{% block content %}
-
-<h1>{{ article.title }}</h1>
-<div>{{ article.title }}</div>
-<p>Просмотры: {{ article.vews }}</p>
-<p>Создано: {{ article.created_at }}</p>
-<p>Просмотры: {{ article.created_at }}</p>
-<p>
-    Автор:
-    <ul>
-        <li>Псевдоним - {{ article.author.nik}}</li>li>
-        </li>
-    </ul>
-</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>{{ article.title }}</h1>
+    <div>{{ article.text }}</div>
+</body>
+</html>

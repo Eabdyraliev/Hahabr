@@ -6,13 +6,13 @@ from .models import Article, Author
 # Create your views here.
 def homepage(request):
     # return HttpResponse('<h2>Hello world!<h2>')
-    return render(request, 'index.html')
+    return render(request, 'base.html')
 
-def first_article(request):
-    article = Article.objects.first()
+def article(request):
+    article = Article.objects.get(id=1)
     return render(
         request,
-        'article_page.html',
+        'article.html',
         {'article':article}
     )
 
@@ -50,3 +50,4 @@ def add_article(request):
 def delete_article(request, id):
     article = Article.object.get(pk=id)
     article.delete()
+
