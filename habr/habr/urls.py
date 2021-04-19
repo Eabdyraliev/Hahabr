@@ -19,6 +19,7 @@ from core.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("article/<int:id>/", article, name = 'article'),
-    path('articles/', articles, name = 'articles'),
-    path('authors/', authors, name = 'authors')
+    path('', articles, name = 'articles'),
+    path('authors/', authors, name = 'authors'),
+    path("about/", about, name = 'about')
 ]

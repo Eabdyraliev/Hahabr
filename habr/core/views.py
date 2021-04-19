@@ -55,3 +55,6 @@ def articles(request):
 def authors(request):
     authors = Author.objects.all()
     return render(request, "authors.html", {"authors":authors})
+
+def about(request):
+    return render(request, 'about.html')
