@@ -7,6 +7,8 @@ from .models import Article, Author
 
 def article(request, id):
     article = Article.objects.get(id=id)
+    article.views += 1
+    article.save()
     return render(
         request,
         'article.html',
@@ -42,6 +44,20 @@ def add_article(request):
 
         new_article.save()
         return redirect(article_page, new_article.pk)
+
+
+# def article_form(request):
+#     context = {}
+    
+#     if request.method == 'POST':
+#         form = ArticleForm(request.POST, requset.FILES)
+#         if form.is_valid():
+#             article = form.save()
+#             return redirect(article_page, article_id)
+
+#     form = ArticleForm()
+#     context["form"] = form
+#     return render(request, "form.html", context)
         
 
 def delete_article(request, id):

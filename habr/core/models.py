@@ -14,15 +14,18 @@ class Article(models.Model):
         related_name='Article'
    )
     
-    def __str__(self):
-        return self.title
-
     readers = models.ManyToManyField(
         to = User,
         related_name = 'readed_articles',
         blank = True,
-        verbose_name = 'Пользователь'
     )
+
+    views = models.IntegerField(default = 0, verbose_name = 'Просмотры')
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.title
 
 
 class Author(models.Model):
