@@ -5,11 +5,11 @@
 
 <div>
     <form method="POST">
-        {% crsf_token}
+        {% csrf_token %}
         <input type="text" placeholder="Заголовок статьи" name="title">
         <br><br><br>
         <textarea name = "text" cols="30" rows="10" placeholder="Текст статьи" name="title"></textarea>
-
+        <br>
         <button>Добавить</button>
     </form>
 

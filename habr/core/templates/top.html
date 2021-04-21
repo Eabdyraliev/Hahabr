@@ -1,0 +1,12 @@
+{% extends base.html %}
+
+{% block content %}
+
+    {% for article in artilces %}
+        <h2><a href="{% url 'article' 'article.id' %}" article.title }}</h2>
+        <div>{{ article.text|truncatechars:20 }}</div>
+        <p> Просмотры: {{ article.views }}</p>
+        <p> Автор: {{ article.author }} </p>
+        <hr>
+    {% endfor %}
+{% endblock %}
