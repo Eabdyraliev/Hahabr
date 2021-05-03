@@ -28,6 +28,7 @@ def edit_article(request, pk):
         return redirect(article_page, pk)
     return render (request, "update.html", {"article": article})
 
+
 def add(request):
     if request.method == "GET":
         return render(request, "add_article.html")
@@ -35,6 +36,7 @@ def add(request):
         form = request.POST
         title = form.get("title")
         text = form.get("text")
+
         
         # new_article = Article(title=title, text=text)
         # new_article.save()
@@ -44,12 +46,13 @@ def add(request):
         new_article.text = text
         user = request.user
 
-        if not Auhtor.objects.filter(user=user).exists():
-            Author = Author(user=user, nik=user.username)
-            author.save()
-
-        author = user.author
-        new_article.author = author
+        if user.is_authenticated:
+            if not Author.objects.filter(user=user).exists():
+                author = Author(user=user, nik=user.username)
+                author.save()
+            author = user.author
+            new_article.author = author
+        
         new_article.save()
         return redirect(article_page, new_article.pk)
 
