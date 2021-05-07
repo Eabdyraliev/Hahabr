@@ -96,3 +96,9 @@ def hide_article(request, id):
 
 # class TestView(TemplateView):
 #     template_name = "test.html" 
+
+def search(request):
+    word = request.GET.get('word')
+    articles = Article.objects.filter(title__contains=word, 
+                                      is_active=True)
+    return render(request, 'articles.html', {'articles':articles})
