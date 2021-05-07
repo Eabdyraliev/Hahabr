@@ -99,6 +99,6 @@ def hide_article(request, id):
 
 def search(request):
     word = request.GET.get('word')
-    articles = Article.objects.filter(title__contains=word, 
+    articles = Article.objects.filter (Q (title__icontains = word) | Q(text__icontains = word), 
                                       is_active=True)
     return render(request, 'articles.html', {'articles':articles})
