@@ -72,11 +72,12 @@ def add(request):
         
 
 def delete_article(request, id):
-    article = Article.object.get(pk=id)
+    article = Article.objects.get(pk=id)
     article.delete()
+    return HttpResponse('Статья удалена')
 
 def articles(request):
-    articles = Article.objects.all()
+    articles = Article.objects.filter(is_active = True)
     return render(request, "articles.html", {"articles":articles})
 
 def authors(request):
@@ -85,6 +86,13 @@ def authors(request):
 
 def about(request):
     return render(request, 'about.html')
+
+def hide_article(request, id):
+    article = Article.objects.get(pk=id)
+    article.is_active = False
+    article.save()
+    return redirect(articles)
+
 
 # class TestView(TemplateView):
 #     template_name = "test.html" 

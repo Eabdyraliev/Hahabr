@@ -28,6 +28,8 @@ urlpatterns = [
     path("about/", about, name = 'about'),
     path("article/<int:pk>", edit_article, name = "article-edit"),
     path("article/add/", add, name = "article-add"),
+    path('article/<int:id>/delete', delete_article, name= 'article-delete'),
+    path('article/<int:id>/hide', hide_article, name = 'article-hide'),
     # path("test", test.view)
 ] 
 # + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
