@@ -21,9 +21,16 @@ class Article(models.Model):
     )
 
     views = models.IntegerField(default = 0, verbose_name = 'Просмотры')
+    
     created_at = models.DateTimeField(auto_now_add=True, null=True)
+    
     updated_at = models.DateTimeField(auto_now=True)
+    
     is_active = models.BooleanField(default = True)
+    
+    picture = models.ImageField(upload_to='articles_image', 
+    null=True, blank=True,
+    verbose_name = 'Картинка статьи')
 
     def __str__(self):
         return self.title
